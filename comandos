@@ -1,0 +1,100 @@
+docker exec -it <mycontainer> bash
+
+docker run -d -p 27017:27017 mongo
+
+docker run -d -p 27017:27017 --mount source=mongo-vol,target=/app mongo
+
+docker volume inspect mongo-vol 
+
+docker run -d --mount source=mongo-vol,target=/app mongo 
+
+docker volume ls
+
+docker volume create mongo-vol
+
+docker run -d -p 27017:27017 -v mongodata:C:\\Users\\samu1\\OneDrive\\Área de Trabalho\\onerf\\mongodata mongo
+
+docker run -d -p 27017:27017 -v mongodata:\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes
+
+docker run -d --name dbm -v ~/mongoDBData:/data/db -p 27017:27017 mongo <-- esse funcionou para persistir os dados
+
+docker start dbs
+
+------------------------------
+$ sudo docker restart discourse_app
+$ sudo docker stop discourse_app
+$ sudo docker start discourse_app
+$ sudo docker rename discourse_app disc_app
+----------------------------
+
+https://miro.com/app/board/uXjVOiYo40M=/ para fazer diagramas
+
+git reset --hard HEAD~1 => para dar um restore no último commit
+
+git checkout -b new_branch
+
+git log --oneline
+
+q => para sair do git log
+
+git revert [sha1 code] => para reverter determinado commit
+
+git diff
+
+git branch -D [branch name]
+
+git push [remote] [branch name] => enviar atualizações
+
+git fetch => "puxa" as novas branchs do repositori para sua maquina
+git pull => sincroniza a branch atual o repositorio
+
+git switch [nome da branch em remoto] => puxa uma branch do remote para local
+
+
+git tag <tag name>
+git tag v1.0
+git tag -a v1.1 -m "tag for realease ver 1.1'
+git show v1.1
+git tag -l "v1.*"
+git push origin v1.0
+git tag -d v1.0
+git push origin -d v1.0
+git tag <tag name> <reference of commit>
+git tag v1.2 5fcdb03
+
+
+#########################
+If you want to merge project-a into project-b:
+
+cd path/to/project-b
+git remote add project-a /path/to/project-a
+git fetch project-a --tags
+git merge --allow-unrelated-histories project-a/master # or whichever branch you want to merge
+git remote remove project-a
+#########################
+
+git pull remote-dev master --allow-unrelated-histories => esse comando atualizou o meu repo de prod, com varios conflitos
+git restore . => restore de todos os arquivos que nao foram para stage
+git merge --abort
+
+
+git pull -X theirs remote-dev master --allow-unrelated-histories => esse daqui mergea bonito o de producao com a master
+
+
+git branch | grep -v "master" | xargs git branch -D => remove todas as branchs diferente de master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
