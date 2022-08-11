@@ -78,23 +78,25 @@ git restore . => restore de todos os arquivos que nao foram para stage
 git merge --abort
 
 
-git pull -X theirs remote-dev master --allow-unrelated-histories => esse daqui mergea bonito o de producao com a master
+git pull -X theirs remote-dev master --allow-unrelated-histories --prune => esse daqui mergea bonito o de producao com a master
 
 
 git branch | grep -v "master" | xargs git branch -D => remove todas as branchs diferente de master
 
+apidoc -i ./src -o ./src/apidoc
+
+Regex para encontrar todos os console.log em um arquivo no VSCode ====>  console.log.*$
+
+============================================= acho que posso jogar fora isso
+git pull -X theirs 'remote-dev/TestMoveFolders' --allow-unrelated-histories --prune
+git pull -X theirs remote-dev master --prune
+git merge -X theirs --allow-unrelated-histories remote-dev/TestMoveFolders
+git merge -s resolve --allow-unrelated-histories remote-dev/TestMoveFolders
+git fetch remote-dev master; git merge -X theirs --allow-unrelated-histories FETCH_HEAD
+git clean -f
+git merge remote-dev/TestMoveFolders -X theirs --allow-unrelated-histories
+======================================================
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+git merge -s subtree --allow-unrelated-histories remote-dev/TestMoveFolders => pareceu funcionar
+git pull -s subtree remote-dev TestMoveFolders --allow-unrelated-histories 
