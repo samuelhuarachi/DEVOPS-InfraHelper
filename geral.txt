@@ -1,0 +1,41 @@
+grep -E --color 'vmx|svm' /proc/cpuinfo
+
+go run server.go
+
+curl http://loacalhost:3000
+
+goserver-d5cd48684-f5mnn
+
+pwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

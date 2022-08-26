@@ -1,0 +1,24 @@
+docker rm $(docker ps -a -q) -f
+
+docker build -t samuelhuarachi/go-k8s .
+
+docker push samuelhuarachimyappnode:latest
+
+docker login
+
+docker build -i -t samuelhuarachi/appnode-k8s .
+
+https://hub.docker.com/
+
+docker run -d -p 27017:27017 [container name/id]
+
+docker run -i -t -p 3001:3001 samuelhuarachi/node1-k8s /bin/bash [X]
+
+docker exec -it [container id] /bin/bash
+
+docker run -d -p 3001:3001 -it a1ef8ef759d9 <----
+
+docker build --no-cache -t samuelhuarachi/nodeapp .
+
+docker run -d -p 3001:3001 samuelhuarachi/nodeapp
+
