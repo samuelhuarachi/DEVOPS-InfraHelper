@@ -25,3 +25,10 @@ kubectl get svc
 kubectl port-forward service/goserver-service 3010:3000
 
 kubectl rollout undo deployment goserver
+
+kubectl exec -it [container] bash
+
+kubectl logs [pod name]
+
+persist data with mongodb k8s
+https://stackoverflow.com/questions/63047549/how-to-deploy-mongodb-with-persistent-volume-in-kubernetes

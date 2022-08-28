@@ -6,7 +6,7 @@ docker push samuelhuarachimyappnode:latest
 
 docker login
 
-docker build -i -t samuelhuarachi/appnode-k8s .
+docker build -i -t samuelhuarachi/nodeapp .
 
 https://hub.docker.com/
 
