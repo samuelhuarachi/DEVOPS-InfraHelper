@@ -46,19 +46,20 @@ git branch -D [branch name]
 git push [remote] [branch name] => enviar atualizações
 
 git fetch => "puxa" as novas branchs do repositori para sua maquina
+git remote update => se o checkout nao fncionar,  e nem o fetch, faz esse depois o fetch denovo, e dpoeis o checkout
 git pull => sincroniza a branch atual o repositorio
 
 git switch [nome da branch em remoto] => puxa uma branch do remote para local
 
 
 git tag <tag name>
-git tag v1.0
-git tag -a v1.1 -m "tag for realease ver 1.1'
+git tag v1.1.0
+git tag -a v1.1.1 -m "bug fix'
 git show v1.1
 git tag -l "v1.*"
-git push origin v1.0
+git push prod v1.1.1
 git tag -d v1.0
-git push origin -d v1.0
+git push prod -d v1.1.0
 git tag <tag name> <reference of commit>
 git tag v1.2 5fcdb03
 
@@ -100,3 +101,10 @@ git merge remote-dev/TestMoveFolders -X theirs --allow-unrelated-histories
 
 git merge -s subtree --allow-unrelated-histories remote-dev/TestMoveFolders => pareceu funcionar
 git pull -s subtree remote-dev TestMoveFolders --allow-unrelated-histories 
+
+git push prod  --tags
+
+-t (ping sem parar) -l 1 (ping de 1 byte)
+
+no navegador para ver a rota
+http://[aaaa:7558:9102:131:212:4b00:1cbd:891]/
