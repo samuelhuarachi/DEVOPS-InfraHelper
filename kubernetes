@@ -1,6 +1,3 @@
-
-grep -E --color 'vmx|svm' /proc/cpuinfo
-
 kubectl version --client
 
 kind get clusters
@@ -13,27 +10,13 @@ kubectl config use-context kind-samuelgomes
 
 kind delete cluster --name samuelgomes
 
-docker rm $(docker ps -a -q) -f
-
 kubectl get pods
 
 kubectl get services
 
-go run server.go
-
-curl http://loacalhost:3000
-
-docker build -t samuelhuarachi/go-k8s .
-
-docker push samuelhuarachi/go-k8s:latest
-
-docker login
-
 kubectl apply -f k8s/deployment.yaml
 
 kubectl get deployments
-
-goserver-d5cd48684-f5mnn
 
 kubectl apply -f k8s/service.yaml
 
@@ -41,40 +24,11 @@ kubectl get svc
 
 kubectl port-forward service/goserver-service 3010:3000
 
-docker build -t samuelhuarachi/go-k8s:v2 .
-
 kubectl rollout undo deployment goserver
 
-pwd
+kubectl exec -it [container] bash
 
+kubectl logs [pod name]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+persist data with mongodb k8s
+https://stackoverflow.com/questions/63047549/how-to-deploy-mongodb-with-persistent-volume-in-kubernetes
