@@ -1,34 +1,3 @@
-docker exec -it <mycontainer> bash
-
-docker run -d -p 27017:27017 mongo
-
-docker run -d -p 27017:27017 --mount source=mongo-vol,target=/app mongo
-
-docker volume inspect mongo-vol 
-
-docker run -d --mount source=mongo-vol,target=/app mongo 
-
-docker volume ls
-
-docker volume create mongo-vol
-
-docker run -d -p 27017:27017 -v mongodata:C:\\Users\\samu1\\OneDrive\\Área de Trabalho\\onerf\\mongodata mongo
-
-docker run -d -p 27017:27017 -v mongodata:\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes
-
-docker run -d --name dbm -v ~/mongoDBData:/data/db -p 27017:27017 mongo <-- esse funcionou para persistir os dados
-
-docker start dbs
-
-------------------------------
-$ sudo docker restart discourse_app
-$ sudo docker stop discourse_app
-$ sudo docker start discourse_app
-$ sudo docker rename discourse_app disc_app
-----------------------------
-
-https://miro.com/app/board/uXjVOiYo40M=/ para fazer diagramas
-
 git reset --hard HEAD~1 => para dar um restore no último commit
 
 git checkout -b new_branch
@@ -51,10 +20,9 @@ git pull => sincroniza a branch atual o repositorio
 
 git switch [nome da branch em remoto] => puxa uma branch do remote para local
 
-
 git tag <tag name>
 git tag v1.1.0
-git tag -a v1.1.1 -m "bug fix'
+git tag -a v1.1.1 -m "bug fix"
 git show v1.1
 git tag -l "v1.*"
 git push prod v1.1.1
@@ -62,7 +30,6 @@ git tag -d v1.0
 git push prod -d v1.1.0
 git tag <tag name> <reference of commit>
 git tag v1.2 5fcdb03
-
 
 #########################
 If you want to merge project-a into project-b:
@@ -84,9 +51,6 @@ git pull -X theirs remote-dev master --allow-unrelated-histories --prune => esse
 
 git branch | grep -v "master" | xargs git branch -D => remove todas as branchs diferente de master
 
-apidoc -i ./src -o ./src/apidoc
-
-Regex para encontrar todos os console.log em um arquivo no VSCode ====>  console.log.*$
 
 ============================================= acho que posso jogar fora isso
 git pull -X theirs 'remote-dev/TestMoveFolders' --allow-unrelated-histories --prune
@@ -103,8 +67,3 @@ git merge -s subtree --allow-unrelated-histories remote-dev/TestMoveFolders => p
 git pull -s subtree remote-dev TestMoveFolders --allow-unrelated-histories 
 
 git push prod  --tags
-
--t (ping sem parar) -l 1 (ping de 1 byte)
-
-no navegador para ver a rota
-http://[aaaa:7558:9102:131:212:4b00:1cbd:891]/

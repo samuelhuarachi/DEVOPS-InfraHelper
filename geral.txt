@@ -9,6 +9,18 @@ goserver-d5cd48684-f5mnn
 pwd
 
 
+https://miro.com/app/board/uXjVOiYo40M=/ para fazer diagramas
+
+apidoc -i ./src -o ./src/apidoc
+
+Regex para encontrar todos os console.log em um arquivo no VSCode ====>  console.log.*$
+
+-t (ping sem parar) -l 1 (ping de 1 byte)
+
+no navegador para ver a rota
+http://[aaaa:7558:9102:131:212:4b00:1cbd:891]/
+
+
 
 
 

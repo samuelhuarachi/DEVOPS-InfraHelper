@@ -22,3 +22,33 @@ docker build --no-cache -t samuelhuarachi/nodeapp .
 
 docker run -d -p 3001:3001 samuelhuarachi/nodeapp
 
+################################
+
+docker exec -it <mycontainer> bash
+
+docker run -d -p 27017:27017 mongo
+
+docker run -d -p 27017:27017 --mount source=mongo-vol,target=/app mongo
+
+docker volume inspect mongo-vol 
+
+docker run -d --mount source=mongo-vol,target=/app mongo 
+
+docker volume ls
+
+docker volume create mongo-vol
+
+docker run -d -p 27017:27017 -v mongodata:C:\\Users\\samu1\\OneDrive\\Área de Trabalho\\[]\\mongodata mongo
+
+docker run -d -p 27017:27017 -v mongodata:\\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes
+
+docker run -d --name dbm -v ~/mongoDBData:/data/db -p 27017:27017 mongo <-- esse funcionou para persistir os dados
+
+docker start dbs
+
+------------------------------
+$ sudo docker restart discourse_app
+$ sudo docker stop discourse_app
+$ sudo docker start discourse_app
+$ sudo docker rename discourse_app disc_app
+----------------------------
