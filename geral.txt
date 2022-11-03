@@ -20,6 +20,19 @@ Regex para encontrar todos os console.log em um arquivo no VSCode ====>  console
 no navegador para ver a rota
 http://[aaaa:7558:9102:131:212:4b00:1cbd:891]/
 
+listar o serviço que esta rodando nessa porta
+lsof -i :8000
+
+eliminar serviço by PID
+sudo kill -9 [process_id]
+
+
+Design Patterns Javascript
+https://www.patterns.dev/posts/introduction/
+
+<< HEAD
+>>>>>>> dev
+
 
 
 

@@ -1,0 +1,202 @@
+wg set wgB.conf peer iEBp25vY6zooeivlHqyb0KD0ga7AqZoq5Kxfn4oZImU= allowed-ips 0.0.0.0
+
+sudo systemctl start wg-quick@wg0
+
+sudo wg-quick down wg0
+
+wg show wg0
+
+wg-quick save wg0
+
+
+ip route add default via 10.200.1.3 dev wg0 table 200
+
+ip route add default dev wg0 table 200
+
+
+
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+
+/var/log/kern.log
+
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-wireguard-on-ubuntu-20-04
+
+
+
+PostUp = ufw route allow in on wg0 out on wlp0s20f3
+PostUp = iptables -t nat -I POSTROUTING -o wlp0s20f3 -j MASQUERADE
+PostUp = ip6tables -t nat -I POSTROUTING -o wlp0s20f3 -j MASQUERADE
+
+PreDown = ufw route delete allow in on wg0 out on wlp0s20f3
+PreDown = iptables -t nat -D POSTROUTING -o wlp0s20f3 -j MASQUERADE
+PreDown = ip6tables -t nat -D POSTROUTING -o wlp0s20f3 -j MASQUERADE
+
+
+Otimo conteudo, fazendo um site to site com openvpn
+https://ubuntuforum-br.org/index.php?topic=122910.0
+https://ubuntuforum-br.org/index.php?topic=122910.0
+
+cidr.xyz => para faixas de ip
+
+Estudando VPN por esse link
+https://www.youtube.com/watch?v=d10HkvnAyXc
+
+VPC ID One R
+vpc-e5d5039f 
+
+
+====================================
+
+
+
+iptables -I FORWARD -i wgA -o eth0 -s 172.31.80.0/20 -m conntrack --ctstate NEW -j ACCEPT
+
+iptables -I FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+iptables -t nat -I POSTROUTING -o eth0 -s 172.31.80.0/20 -j MASQUERADE
+
+
+iptables -t nat -I POSTROUTING 1 -s 172.31.80.0/20 -o eth0 -j MASQUERADE
+
+
+-----------
+
+ufw route allow in on eth0 out on wgA
+
+ufw route allow in on wgA out on eth0
+
+iptables -t nat -A POSTROUTING -s 172.31.80.0/20 -o eth0 -j MASQUERADE
+--------------------------------------------------------------------------------------
+
+iptables -t nat -I POSTROUTING 1 -s 172.31.80.0/20 -o eth0 -j MASQUERADE
+
+iptables -I INPUT 1 -i wgA -j ACCEPT
+
+
+
+iptables -I FORWARD 1 -i enp2s0 -o tun0 -j ACCEPT
+iptables -I FORWARD 1 -i tun0 -o enp2s0 -j ACCEPT
+
+
+iptables -D FORWARD -i enp2s0 -o tun0 -j ACCEPT
+iptables -D FORWARD -i tun0 -o enp2s0 -j ACCEPT
+
+
+
+iptables -I INPUT 1 -i eth0 -p udp --dport 51000 -j ACCEPT
+
+
+tcpdump -nei eth0 -X | grep "ICMP"
+
+
+ip route add 172.31.80.0/20 via 172.31.80.1 dev eth0
+
+
+aqui interessante
+https://sweetcode.io/routing-all-traffic-through-a-vpn-gateway-on-linux/
+
+-------------------------------------------
+
+
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         ip-172-31-80-1. 0.0.0.0         UG    100    0        0 eth0
+ip-172-31-0-2.e ip-172-31-80-1. 255.255.255.255 UGH   100    0        0 eth0
+172.31.80.0     0.0.0.0         255.255.240.0   U     0      0        0 wgA
+172.31.80.0     0.0.0.0         255.255.240.0   U     100    0        0 eth0
+ip-172-31-80-1. 0.0.0.0         255.255.255.255 UH    100    0        0 eth0
+192.168.10.0    0.0.0.0         255.255.255.0   U     0      0        0 wgA
+
+
+ip route del default via ip-172-31-80-1.
+
+
+
+ufw allow ssh
+ufw allow 51000/udp
+ufw enable
+
+
+----------------------------------
+
+
+[Interface]
+PrivateKey = WJ5NIA9vEqKv9hEeLmdZTT4/8wk12OoQ3N3wmtYeqVI=
+Address = 10.10.12.1/24
+PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+ListenPort = 51000
+
+[Peer]
+PublicKey = iEBp25vY6zooeivlHqyb0KD0ga7AqZoq5Kxfn4oZImU=
+AllowedIPs = 10.10.11.1/24, 0.0.0.0/0
+PersistentKeepalive = 25
+
+------------------------------------
+
+[Interface]
+PrivateKey = KANQQuE3lRJR6jDxViXvK+XMYayDcBRvTfSgXfNMgGI=
+Address = 172.31.16.0/20
+PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+ListenPort = 51000
+
+[Peer]
+PublicKey = ZbjhAVhwMy0+noRWNmO4L+JqqYnZwJfCvvPJwQICrWA=
+AllowedIPs = 192.168.15.0/24, 172.31.16.0/20
+
+
+
+
+ip route del 122.252.228.38/32
+
+netstat -rn
+
+ip route add 192.168.15.0/24 via 10.111.0.1 dev tun0
+
+
+
+ip route add 192.168.15.0/24 via 192.168.15.1 dev enp2s0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

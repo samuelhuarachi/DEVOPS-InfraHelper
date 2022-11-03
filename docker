@@ -52,3 +52,30 @@ $ sudo docker stop discourse_app
 $ sudo docker start discourse_app
 $ sudo docker rename discourse_app disc_app
 ----------------------------
+
+
+# Para reajustar a pasta dos containers
+sudo systemctl stop docker
+sudo mount --rbind ./mnt/docker /var/lib/docker
+sudo systemctl start docker
+
+
+
+# para ver os logs
+docker attach [container id]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

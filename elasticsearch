@@ -1,0 +1,37 @@
+POST remote-dev/_count
+{
+  "query": {
+    "range": {
+      "@timestamp": {
+        "gte": "2021-10-14T05:22:14",
+        "lte": "2022-09-27T05:22:14"
+      }
+    }
+  }
+}
+
+POST remote-dev/_search
+{
+  "query": {
+    "range": {
+      "@timestamp": {
+        "gte": "2021-10-14T05:22:14",
+        "lte": "2022-09-27T05:22:14"
+      }
+    }
+  }
+}
+
+POST remote-dev/_delete_by_query
+{
+  "query": {
+    "range": {
+      "@timestamp": {
+        "gte": "2021-10-14T05:22:14",
+        "lte": "2022-09-27T05:22:14"
+      }
+    }
+  }
+}
+
+GET remote-dev/_search

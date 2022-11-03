@@ -21,13 +21,13 @@ git pull => sincroniza a branch atual o repositorio
 git switch [nome da branch em remoto] => puxa uma branch do remote para local
 
 git tag <tag name>
-git tag v1.1.0
+git tag v1.5.1
 git tag -a v1.1.1 -m "bug fix"
 git show v1.1
 git tag -l "v1.*"
-git push prod v1.1.1
-git tag -d v1.0
-git push prod -d v1.1.0
+git push prod v1.5.1
+git tag -d v1.5.0
+git push prod -d v1.5.1
 git tag <tag name> <reference of commit>
 git tag v1.2 5fcdb03
 
@@ -64,6 +64,25 @@ git merge remote-dev/TestMoveFolders -X theirs --allow-unrelated-histories
 
 
 git merge -s subtree --allow-unrelated-histories remote-dev/TestMoveFolders => pareceu funcionar
+
+
+
+
 git pull -s subtree remote-dev TestMoveFolders --allow-unrelated-histories 
 
 git push prod  --tags
+
+***********************************
+achar conflitos
+git grep '<<<<<<< HEAD'
+
+ou 
+
+procurar por
+<< HEAD
+>>>>>>> dev
+***********************************
+
+
+
+
