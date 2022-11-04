@@ -64,9 +64,9 @@ iptables -t nat -I POSTROUTING 1 -s 172.31.80.0/20 -o eth0 -j MASQUERADE
 
 -----------
 
-ufw route allow in on eth0 out on wgA
+ufw route allow in on eth0 out on tun0
 
-ufw route allow in on wgA out on eth0
+ufw route allow in on tun0 out on eth0
 
 iptables -t nat -A POSTROUTING -s 172.31.80.0/20 -o eth0 -j MASQUERADE
 --------------------------------------------------------------------------------------
@@ -77,11 +77,11 @@ iptables -I INPUT 1 -i wgA -j ACCEPT
 
 
 
-iptables -I FORWARD 1 -i enp2s0 -o tun0 -j ACCEPT
+iptables -I FORWARD 1 -i eth0 -o tun0 -j ACCEPT
 iptables -I FORWARD 1 -i tun0 -o enp2s0 -j ACCEPT
 
 
-iptables -D FORWARD -i enp2s0 -o tun0 -j ACCEPT
+iptables -D FORWARD -i eth0 -o tun0 -j ACCEPT
 iptables -D FORWARD -i tun0 -o enp2s0 -j ACCEPT
 
 
@@ -148,25 +148,34 @@ PublicKey = ZbjhAVhwMy0+noRWNmO4L+JqqYnZwJfCvvPJwQICrWA=
 AllowedIPs = 192.168.15.0/24, 172.31.16.0/20
 
 
-
-
 ip route del 122.252.228.38/32
 
 netstat -rn
 
-ip route add 192.168.15.0/24 via 10.111.0.1 dev tun0
-
-
+ip route add 192.168.247.0/24 via 10.8.0.2 dev tun0
+ip route del 192.168.247.0/24
 
 ip route add 192.168.15.0/24 via 192.168.15.1 dev enp2s0
 
 
+----------------------------------------
+3 nov 2022
+
+https://serverfault.com/questions/645911/how-access-remote-network-with-openvpn
 
 
+================================
+
+artigo para tunelar a rede local com o tun0
+https://serverfault.com/questions/571801/tunneling-traffic-from-eth0-to-tun0-openvpn-ububtu-12-04
 
 
+instalar openvpn
+https://simplificandoredes.com/en/install-open-vpn-on-linux/
 
+ip route
 
+sudo iptables -S => para listar todas as regras
 
 
 
