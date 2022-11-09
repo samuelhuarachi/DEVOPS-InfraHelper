@@ -178,9 +178,29 @@ ip route
 sudo iptables -S => para listar todas as regras
 
 
+================================
+
+Bom conteudo com wireguard, fazendo um site to site
+https://www.procustodibus.com/blog/2020/12/wireguard-site-to-site-config/#configure-routing
 
 
 
+================================
+
+systemctl daemon-reload
+
+
+============================
+
+todas as opcoes utilizadas pelo openvpn explicadas uma a uma
+https://www.vivaolinux.com.br/artigo/Parametros-de-configuracao-de-VPN
+
+para o openvpn nao dar problema de permissao de grupo, mais 
+detalhes em: https://www.tecmint.com/disable-selinux-in-centos-rhel-fedora/
+setenforce 0
+
+dar acesso de root para um user
+https://linuxopsys.com/topics/give-normal-user-root-privileges
 
 
 
