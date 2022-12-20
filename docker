@@ -64,7 +64,8 @@ sudo systemctl start docker
 # para ver os logs
 docker attach [container id]
 
-
+# pegar o path dos logs do docker
+docker inspect --format='{{.LogPath}}' <container_name_or_id>
 
 
 

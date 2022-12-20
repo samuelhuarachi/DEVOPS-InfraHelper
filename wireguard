@@ -189,7 +189,6 @@ https://www.procustodibus.com/blog/2020/12/wireguard-site-to-site-config/#config
 
 systemctl daemon-reload
 
-
 ============================
 
 todas as opcoes utilizadas pelo openvpn explicadas uma a uma
@@ -202,19 +201,33 @@ setenforce 0
 dar acesso de root para um user
 https://linuxopsys.com/topics/give-normal-user-root-privileges
 
+============================
+
+tcpdump udp port 1500 -XAvvv
+
+=============================
 
 
+sudo route -A inet6 add aaaa:7559:9102:98::0/64 dev tun97
+route -A inet6
+
+=============================
+
+// acho que excluir arquivos que tenham TT no nome do arquivo
+find | grep TT | xargs rm -f
 
 
+=============================
 
+Excluir rotas desnecessarias:
 
+sudo ip route del 10.0.12.0/24 via 0.0.0.0 dev tun12
+sudo ip route del 10.0.15.0/24 via 0.0.0.0 dev tun15
 
+Mudar ipv4 do gateway:
+/etc/config/network
 
-
-
-
-
-
+=============================
 
 
 

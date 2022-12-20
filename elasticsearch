@@ -35,3 +35,34 @@ POST remote-dev/_delete_by_query
 }
 
 GET remote-dev/_search
+
+
+
+POST remote-dev/_delete_by_query
+{
+  "query": {
+    "range": {
+      "@timestamp": {
+        "gte": "2021-10-14T05:22:14",
+        "lte": "2022-10-27T05:22:14"
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

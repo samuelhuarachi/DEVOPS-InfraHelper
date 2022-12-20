@@ -1,0 +1,12 @@
+watch -n 5 free -m
+
+exec ("find /path/to/folder -type d -exec chmod 0750 {} +");
+exec ("find /path/to/folder -type f -exec chmod 0644 {} +");
+
+
+Para encontrar arquivos maiores que 10M
+find / -size +10M -ls
+
+
+
+
