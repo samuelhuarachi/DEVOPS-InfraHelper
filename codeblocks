@@ -1,0 +1,45 @@
+user preferences:
+
+{
+    "workbench.colorTheme": "Monokai",
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnPaste": false, // required 
+    "editor.formatOnType": false, // required
+    "editor.formatOnSave": true, // optional 
+    "editor.formatOnSaveMode": "file", // required to format on save
+    "files.autoSave": "onFocusChange",
+    "extensions.ignoreRecommendations": true, // optional but recommended
+}
+
+.eslintrc.json
+
+{
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2021": true,
+      "jest": true
+    },
+    "extends": [
+      "eslint:google",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "overrides": [],
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+      "max-len": ["error", { "code": 100 }],
+      "quotes": ["error", "double"],
+      "valid-jsdoc": ["error"]
+    },
+    "plugins": ["@typescript-eslint"]
+  }
+  
