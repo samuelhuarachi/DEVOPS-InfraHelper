@@ -51,6 +51,10 @@ POST remote-dev/_delete_by_query
 }
 
 
+ curl -XDELETE  -u elastic:sjX4-ZRAR7mwqmiDPx0q localhost:9200/appapi-prod-appapi
+
+ curl -XGET  -u elastic:sjX4-ZRAR7mwqmiDPx0q localhost:9200/_cat/indices?v
+
 
 
 
