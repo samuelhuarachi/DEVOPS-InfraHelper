@@ -7,6 +7,11 @@ exec ("find /path/to/folder -type f -exec chmod 0644 {} +");
 Para encontrar arquivos maiores que 10M
 find / -size +10M -ls
 
+Baixar um arquivo
+scp -i myAmazonKey.pem centos@[IP]:~/.
+
+Enviar um arquivo
+scp -i mykey.pem somefile.txt root@my.ec2.id.amazonaws.com:/
 
 
-
+ls -lh * => check size of all the files in the current directory
