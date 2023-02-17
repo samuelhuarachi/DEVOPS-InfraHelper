@@ -19,3 +19,14 @@ scp -i mykey.pem somefile.txt root@my.ec2.id.amazonaws.com:/
 
 
 ls -lh * => check size of all the files in the current directory
+
+## fix broken install
+sudo apt --fix-broken install
+sudo apt-get --reinstall install mysql-client-core-8.0
+sudo apt-get purge mysql\* libmysql\*
+sudo apt autoremove
+sudo apt update
+sudo apt install mysql-server
+
+
+
