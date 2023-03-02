@@ -28,5 +28,7 @@ sudo apt autoremove
 sudo apt update
 sudo apt install mysql-server
 
+opkg list-installed => Listar softwares instalados pelo opkg
+
 
 
