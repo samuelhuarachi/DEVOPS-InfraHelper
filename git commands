@@ -1,3 +1,5 @@
+https://git-school.github.io/visualizing-git/
+
 git log --decorate --oneline --graph --all
 
 git config submodule.recurse true
