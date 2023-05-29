@@ -1,0 +1,1 @@
+$ mongorestore --username adminUser --password pass123 --authenticationDatabase admin --db exampleDB dump/exampleDB
