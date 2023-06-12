@@ -1,3 +1,17 @@
+# lista todos os arquivos modificados por commit
+git show --stat --name-only '302549848049cf2a638262200b4b28a2ba2d3e09'
+
+# ver alterações de um arquivo em específico
+git log -p -- 'estrutura de dados/estudo/main.c'
+gitk 'estrutura de dados/estudo/main.c' # uma alternativa muito interessante, mostrando graficamente
+git fetch # para trazer as atualizações do servidor, e poder comprar se minha main está muito atrás dos updates do server
+git branch -a # para listar as branchs locais, e remotas
+gitk origin # para ver os updates que o servidor fez
+
+git pull --recurse-submodules # pode ser util
+
+
+
 https://git-school.github.io/visualizing-git/
 
 git log --decorate --oneline --graph --all
@@ -14,7 +28,7 @@ git log --oneline
 
 q => para sair do git log
 
-git revert [sha1 code] => para reverter determinado commit
+git revert [sha1 code] => para reverter determinado commit # eu prefiro usar o reset
 
 git diff
 
