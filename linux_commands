@@ -1,3 +1,6 @@
+Pesquisa recursiva por um nome de diretorio
+find . -name ".git"
+
 
 Comando para alterar um texto em todos os arquivos de um diretorio
 sudo find . -type f -exec sed -i 's/@every 20s/@every 8380s/g' {} \;
