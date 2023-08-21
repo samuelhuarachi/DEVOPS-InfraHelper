@@ -1,3 +1,7 @@
+Lista as versoes de python instalada no ubuntu
+sudo update-alternatives --config python3
+
+
 Pesquisa recursiva por um nome de diretorio
 find . -name ".git"
 
