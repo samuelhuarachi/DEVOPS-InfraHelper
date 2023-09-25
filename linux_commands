@@ -1,4 +1,8 @@
-Lista as versoes de python instalada no ubuntu
+Add the key to the ssh-agent
+ssh-add ~/.ssh/id_rsa
+
+
+Lista as versoes de python instalada no ubuntus
 sudo update-alternatives --config python3
 
 
@@ -19,7 +23,7 @@ Para encontrar arquivos maiores que 10M
 find / -size +10M -ls
 
 Baixar um arquivo
-scp -i myAmazonKey.pem centos@[IP]:~/.
+scp -i myAmazonKey.pem centos@[IP]:~/. <local folder destination>
 
 Enviar um arquivo
 scp -i mykey.pem somefile.txt root@my.ec2.id.amazonaws.com:/

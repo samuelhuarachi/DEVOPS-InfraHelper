@@ -1,0 +1,26 @@
+# How install
+
+# How backups and restores
+influxd backup -database <database> <output folder>
+influxd backup -database my_database01 ./my_backups
+
+# How compress folder in linux
+tar -zcvf archive-name.tar.gz source-directory-name
+-z Compress archive using gzip program in Linux or Unix
+-c Create archive on Linux
+-v Verbose i.e display progress while creating archive
+-f Archive File name
+
+# How restore influx database
+sudo service influxdb stop  (Service should not be running)
+influxd restore -metadir /var/lib/influxdb/meta <backup directory> # talvez nao precisa rodar esse comando, testar
+
+# nesse esquema de restore, eu não consegui definir um nome padrão para o banco de daodos
+influxd restore -db green_box -metadir /var/lib/influxdb/meta -datadir /var/lib/influxdb/data <backup directory>
+## duvidas consultar o helper do influxd restore ( influxd restore -help )
+sudo service influxdb start
+
+
+
+
+
