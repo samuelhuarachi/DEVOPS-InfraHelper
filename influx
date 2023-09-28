@@ -1,6 +1,9 @@
 # How install
+https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux
+https://rpm.pkgs.org/packages/influxdb-x86_64/influxdb-1.7.9.x86_64.rpm.html
+sudo influxd
 
-# How backups and restores
+# How backup
 influxd backup -database <database> <output folder>
 influxd backup -database my_database01 ./my_backups
 
@@ -20,7 +23,9 @@ influxd restore -db green_box -metadir /var/lib/influxdb/meta -datadir /var/lib/
 ## duvidas consultar o helper do influxd restore ( influxd restore -help )
 sudo service influxdb start
 
+#extract tar files
+tar -xvzf mywebsitebackup.tar.gz -C /path/to/directory
 
-
+#delete database
 
 

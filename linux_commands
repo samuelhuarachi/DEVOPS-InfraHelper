@@ -2,7 +2,7 @@ Add the key to the ssh-agent
 ssh-add ~/.ssh/id_rsa
 
 
-Lista as versoes de python instalada no ubuntus
+Lista as versoes de python instalada no ubuntu
 sudo update-alternatives --config python3
 
 
@@ -17,7 +17,6 @@ watch -n 5 free -m
 
 exec ("find /path/to/folder -type d -exec chmod 0750 {} +");
 exec ("find /path/to/folder -type f -exec chmod 0644 {} +");
-
 
 Para encontrar arquivos maiores que 10M
 find / -size +10M -ls
@@ -41,5 +40,6 @@ sudo apt install mysql-server
 
 opkg list-installed => Listar softwares instalados pelo opkg
 
-
+#extract tar files
+tar -xvzf mywebsitebackup.tar.gz -C /path/to/directory
 

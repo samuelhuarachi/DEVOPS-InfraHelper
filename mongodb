@@ -5,12 +5,9 @@ connect in mongo protected with password
 mongo --username <your username> --password <your password>
 show dbs
 
-
 backup db
 mongodump --host=10.10.10.59 --port=27017 --db=<Database> --authenticationDatabase=admin -u=<Username> -p=<Password>
 mongodump --db=<Database> --collection=<Collection> --out=<Directory Location> --authenticationDatabase=admin -u=<Username> -p=<Password> --gzip
-
-
 
 - How compress folder in linux
 tar -zcvf <file name>.tar.gz <directory name>
@@ -23,5 +20,8 @@ tar -zcvf <file name>.tar.gz <directory name>
 Site with good commands
 https://www.bmc.com/blogs/mongodb-mongodump/
 https://www.bmc.com/blogs/mongodb-mongorestore/
+
+#extract tar files
+tar -xvzf mywebsitebackup.tar.gz -C /path/to/directory
 
 
