@@ -31,7 +31,8 @@ iptables -F
 iptables -X
  
 # Flush all counters too #
-iptables -Z 
+iptables -Z
+
 # Flush and delete all nat and  mangle #
 iptables -t nat -F
 iptables -t nat -X

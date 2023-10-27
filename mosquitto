@@ -1,1 +1,8 @@
+# publish message
 mosquitto_pub -h localhost -p 1883 -u <login> -P '<password>' -t '<topic>' -m '<message>'
+
+
+
+
+
+

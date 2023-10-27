@@ -18,14 +18,25 @@ tar -zcvf archive-name.tar.gz source-directory-name
 sudo service influxdb stop  (Service should not be running)
 influxd restore -metadir /var/lib/influxdb/meta <backup directory> # talvez nao precisa rodar esse comando, testar
 
-# nesse esquema de restore, eu não consegui definir um nome padrão para o banco de daodos
+# nesse esquem de restore, eu não consegui definir um nome padrão para o banco de daodos
 influxd restore -db green_box -metadir /var/lib/influxdb/meta -datadir /var/lib/influxdb/data <backup directory>
+
 ## duvidas consultar o helper do influxd restore ( influxd restore -help )
 sudo service influxdb start
 
-#extract tar files
+# extract tar filesa
 tar -xvzf mywebsitebackup.tar.gz -C /path/to/directory
 
-#delete database
+# delete database
 
+# influx queries
+SELECT COUNT(*) FROM login_info WHERE time >= '2021-01-04T00:00:00Z' AND time <= '2021-02-03T00:00:00Z' GROUP BY time(1d)
+drop measurement login_info
 
+# quando instala o influxdb ele cria esta pasta, que contem alguns scripts default dele
+/usr/lib/influxdb/scripts
+    #tem um script dentro dessa pasta, que pode ser usado no systemd para iniciar o servido do influx
+    #lembrar de alterar o grupo de usuario, pois o sistema nao criou o grupo e usuario para influxdb
+
+# influx rename a database (possible just make copy of oldest database)
+SELECT * INTO "yasmin_01"."autogen".:MEASUREMENT FROM "green_box"."autogen"./.*/ GROUP BY *

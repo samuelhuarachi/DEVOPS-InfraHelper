@@ -1,3 +1,8 @@
+# comando git, para baixar um repositorio do bitbucket
+# especificando qual arquivo ssh sera utilizado
+git clone -c core.sshCommand="ssh -i <<<PATH_TO_SSH_KEY>>>" git@host:repo.git
+
+
 # lista todos os arquivos modificados por commit
 git show --stat --name-only '302549848049cf2a638262200b4b28a2ba2d3e09'
 

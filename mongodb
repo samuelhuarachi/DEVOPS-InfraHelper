@@ -1,3 +1,5 @@
+# Sobre o mongodb
+
 $ mongorestore --username adminUser --password pass123 --authenticationDatabase admin --db exampleDB dump/exampleDB
 
 
@@ -7,6 +9,8 @@ show dbs
 
 backup db
 mongodump --host=10.10.10.59 --port=27017 --db=<Database> --authenticationDatabase=admin -u=<Username> -p=<Password>
+
+# o mongo cria uma pasta automaticamente quando se faz o dump
 mongodump --db=<Database> --collection=<Collection> --out=<Directory Location> --authenticationDatabase=admin -u=<Username> -p=<Password> --gzip
 
 - How compress folder in linux
@@ -17,11 +21,11 @@ tar -zcvf <file name>.tar.gz <directory name>
 -f Archive File name
 
 
-Site with good commands
+# Site with good commands
 https://www.bmc.com/blogs/mongodb-mongodump/
 https://www.bmc.com/blogs/mongodb-mongorestore/
 
-#extract tar files
+# extract tar files
 tar -xvzf mywebsitebackup.tar.gz -C /path/to/directory
 
 

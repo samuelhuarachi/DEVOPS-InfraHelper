@@ -43,3 +43,11 @@ opkg list-installed => Listar softwares instalados pelo opkg
 #extract tar files
 tar -xvzf mywebsitebackup.tar.gz -C /path/to/directory
 
+# para ver erros de algum serviço do linux
+journalctl -u influxdb
+
+#compress folder
+tar -zcvf file.tar.gz /path/to/dir/
+
+# comando em node para gerar um arquivo de 1gb
+node -e "process.stdout.write(crypto.randomBytes(1e9))" > big.file
