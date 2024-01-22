@@ -1,5 +1,7 @@
 kubectl version --client
 
+kind create cluster
+
 kind get clusters
 
 kubectl cluster-info --context kind-samuelgomes
