@@ -26,6 +26,7 @@ kubectl get svc
 
 kubectl port-forward service/goserver-service 3010:3000
 kubectl port-forward pod/nginx 9090:80
+kubectl port-forward service/goserver-service [i choose the port here]:[service port]
 
 kubectl rollout undo deployment goserver
 
