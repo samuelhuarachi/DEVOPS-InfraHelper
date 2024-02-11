@@ -36,3 +36,5 @@ kubectl logs [pod name]
 
 persist data with mongodb k8s
 https://stackoverflow.com/questions/63047549/how-to-deploy-mongodb-with-persistent-volume-in-kubernetes
+
+kubectl exec -c -it [pod_name] apk add bash
