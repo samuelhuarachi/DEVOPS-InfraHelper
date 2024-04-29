@@ -2,7 +2,6 @@
 
 $ mongorestore --username adminUser --password pass123 --authenticationDatabase admin --db exampleDB dump/exampleDB
 
-
 connect in mongo protected with password
 mongo --username <your username> --password <your password>
 show dbs

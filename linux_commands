@@ -51,3 +51,11 @@ tar -zcvf file.tar.gz /path/to/dir/
 
 # comando em node para gerar um arquivo de 1gb
 node -e "process.stdout.write(crypto.randomBytes(1e9))" > big.file
+
+# adicionar ipv6 no gw, ou no linux em geral
+/sbin/ip -6 route add <ipv6network>/<prefixlength> dev <device>
+
+# show ipv6 routes
+/sbin/ip -6 route show [dev <device>]
+
+
