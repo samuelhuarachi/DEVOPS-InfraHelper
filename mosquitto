@@ -1,8 +1,8 @@
 # publish message
 mosquitto_pub -h localhost -p 1883 -u <login> -P '<password>' -t '<topic>' -m '<message>'
 
-
-
+# sub message
+mosquitto_sub -h <host> -i <client-id> -u <user> -P '<password>' -t '<topic>' -q 2
 
 
 
