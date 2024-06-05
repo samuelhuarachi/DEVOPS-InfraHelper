@@ -1,5 +1,5 @@
 rsync
-sudo rsync site-onerf-v6/ /var/www/html/src/
+sudo rsync -r site-onerf-v6/ /var/www/html/src/
 
 
 
