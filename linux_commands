@@ -7,6 +7,9 @@ tail -f /var/log/zabbix/zabbix_server.log
 Add the key to the ssh-agent
 ssh-add ~/.ssh/id_rsa
 
+Para configurar timezone e locale
+sudo dpkg-reconfigure tzdata
+sudo dpkg-reconfigure locales
 
 Lista as versoes de python instalada no ubuntu
 sudo update-alternatives --config python3
