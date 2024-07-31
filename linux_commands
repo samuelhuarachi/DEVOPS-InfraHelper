@@ -1,3 +1,8 @@
+vi, utilizando expressoes regulares para apagar comentarios:
+g/^$/d
+g/^#/d
+
+
 rsync
 sudo rsync -r site-onerf-v6/ /var/www/html/src/
 
