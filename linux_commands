@@ -1,6 +1,6 @@
 vi, utilizando expressoes regulares para apagar comentarios:
-g/^$/d
-g/^#/d
+:g/^$/d
+:g/^#/d
 
 
 rsync
