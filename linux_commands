@@ -1,3 +1,11 @@
+
+Delete all files:
+find /var/log -type f -delete
+Delete all .gz and rotated file
+find /var/log -type f -regex ".*\.gz$"
+find /var/log -type f -regex ".*\.[0-9]$"
+
+
 vi, utilizando expressoes regulares para apagar comentarios:
 :g/^$/d
 :g/^#/d
