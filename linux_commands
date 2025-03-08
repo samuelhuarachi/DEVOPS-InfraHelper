@@ -6,6 +6,10 @@ find /var/log -type f -regex ".*\.gz$"
 find /var/log -type f -regex ".*\.[0-9]$"
 
 
+
+sudo ip link delete br-83f0e1280c05
+
+
 vi, utilizando expressoes regulares para apagar comentarios:
 :g/^$/d
 :g/^#/d
