@@ -39,3 +39,7 @@ https://stackoverflow.com/questions/63047549/how-to-deploy-mongodb-with-persiste
 
 kubectl exec -it [pod_name] apk add bash
 kubectl exec -it [pod_name] bash
+
+
+kubectl describe cm ingress-nginx-controller -n ingress-nginx
+kubectl rollout restart deployment -n ingress-nginx ingress-nginx-controller
