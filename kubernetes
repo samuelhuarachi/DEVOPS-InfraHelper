@@ -43,3 +43,7 @@ kubectl exec -it [pod_name] bash
 
 kubectl describe cm ingress-nginx-controller -n ingress-nginx
 kubectl rollout restart deployment -n ingress-nginx ingress-nginx-controller
+https://docs.traceable.ai/docs/nginx-ingress
+
+
+
