@@ -46,4 +46,4 @@ kubectl rollout restart deployment -n ingress-nginx ingress-nginx-controller
 https://docs.traceable.ai/docs/nginx-ingress
 
 minikube ssh -- cat /etc/hosts
-
+https://cloudconfig.hashnode.dev/deploy-a-simple-webapp-and-database-on-minikube
