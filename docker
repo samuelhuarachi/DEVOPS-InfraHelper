@@ -1,6 +1,9 @@
 Remove all docker images with <none> version
 docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 
+Rodar uma imagem em um container
+docker run -it --name=ubuntu_container_name start_ubuntu /bin/bash
+
 
 CRIAR NETWORK COM IPV6
 docker network create --subnet="2001:db8:1::/64" --gateway="2001:db8:1::1" --ipv6 my-net1
