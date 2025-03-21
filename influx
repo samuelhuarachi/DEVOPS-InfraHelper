@@ -1,3 +1,6 @@
+# execute specifing host, useful when using docker which expost a specifi port. 8086 is the default port of the influx.
+influx -host '0.0.0.0'
+
 # How install
 https://phoenixnap.com/kb/how-to-install-rpm-file-centos-linux
 https://rpm.pkgs.org/packages/influxdb-x86_64/influxdb-1.7.9.x86_64.rpm.html
