@@ -1,7 +1,7 @@
-Remove all docker images with <none> version
+# Remove all docker images with <none> version
 docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 
-Rodar uma imagem em um container
+# Rodar uma imagem em um container
 docker run -it --name=ubuntu_container_name start_ubuntu /bin/bash
 
 
