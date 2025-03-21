@@ -10,6 +10,7 @@ docker network create --subnet="2001:db8:1::/64" --gateway="2001:db8:1::1" --ipv
 
 docker rm $(docker ps -a -q) -f
 
+docker build --rm -t [image name] . 
 docker build --rm --no-cache -t [image name] .
 
 docker push samuelhuarachimyappnode:latest
