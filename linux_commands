@@ -4,7 +4,8 @@ find /var/log -type f -delete
 Delete all .gz and rotated file
 find /var/log -type f -regex ".*\.gz$"
 find /var/log -type f -regex ".*\.[0-9]$"
-
+sudo journalctl --vacuum-size=100M
+sudo journalctl --vacuum-time=1d
 
 
 sudo ip link delete br-83f0e1280c05
