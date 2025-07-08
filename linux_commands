@@ -6,6 +6,8 @@ find /var/log -type f -regex ".*\.gz$"
 find /var/log -type f -regex ".*\.[0-9]$"
 sudo journalctl --vacuum-size=100M
 sudo journalctl --vacuum-time=1d
+docker image prune -a // para remover imagens nao usadas
+
 
 
 sudo ip link delete br-83f0e1280c05
