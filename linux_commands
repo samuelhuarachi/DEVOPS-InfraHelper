@@ -7,6 +7,12 @@ find /var/log -type f -regex ".*\.[0-9]$"
 sudo journalctl --vacuum-size=100M
 sudo journalctl --vacuum-time=1d
 docker image prune -a // para remover imagens nao usadas
+rm -rf /tmp/*
+rm -rf /var/cache/*
+rm -rf /var/log/*
+docker system prune -af --volumes
+pode tambem excluir o container, e subir denovo, para os inodes "zerarem"
+sudo truncate -s 0 /var/lib/docker/containers/<ID_DO_CONTAINER>/*-json.log // nessa pasta ficam arquivos de log gigantes que o docker gera
 
 
 
