@@ -13,7 +13,7 @@ rm -rf /var/log/*
 docker system prune -af --volumes
 pode tambem excluir o container, e subir denovo, para os inodes "zerarem"
 sudo truncate -s 0 /var/lib/docker/containers/<ID_DO_CONTAINER>/*-json.log // nessa pasta ficam arquivos de log gigantes que o docker gera
-
+sudo du -xh / | sort -h | tail -20 # mostra diretorios grandes no /
 
 sudo sysctl -w net.ipv4.ip_forward=1
 sudo ip link delete br-83f0e1280c05
