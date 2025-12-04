@@ -1,0 +1,143 @@
+Video muito bom de VPC
+https://www.youtube.com/watch?v=bd4ribSTs-Y
+
+------------------------------------------------------------------
+
+
+
+Criando a role
+1. Criar (ou verificar) a Role correta
+
+A role padrão da AWS para SSM é:
+
+👉 AmazonSSMManagedInstanceCore
+
+Se você ainda não tem essa role, siga:
+
+No Console AWS:
+
+Abra: IAM → Roles
+
+Clique em Create Role
+
+Escolha:
+
+Trusted entity: AWS Service
+
+Use case: EC2
+
+Em permissions, adicione:
+
+-
+
+Nomeie a role, por exemplo:
+
+EC2-SSM-Role
+
+Crie a role
+
+------------------------------------------------------------------
+
+
+2. Anexar a Role à sua EC2
+
+Vá para EC2 → Instances
+
+Selecione a instância
+
+Na aba de baixo, encontre:
+Actions → Security → Modify IAM Role
+
+Selecione a role que você acabou de criar:
+
+EC2-SSM-Role
+
+Salve
+
+sudo snap restart amazon-ssm-agent
+
+------------------------------------------------------------------
+
+no ec2 ubuntu
+
+sudo snap start amazon-ssm-agent
+snap services amazon-ssm-agent
+sudo snap restart amazon-ssm-agent
+sudo snap stop amazon-ssm-agent
+
+------------------------------------------------------------------
+
+Dentro do ec2, voce pode testar esses icmp
+Não testei ainda
+
+curl -v https://ssm.sa-east-1.amazonaws.com
+curl -v https://ssmmessages.sa-east-1.amazonaws.com
+curl -v https://ec2messages.sa-east-1.amazonaws.com
+curl https://ssm.amazonaws.com
+
+------------------------------------------------------------------
+
+whoami
+
+------------------------------------------------------------------
+
+Não é necessario, so para dados extras
+Isso permite que mesmo com outro usuario, voce consiga ter acesso
+as coisas do usuario ubuntu
+
+vi /etc/sudoers.d/ssm-agent-users
+pode adicionar
+ssm-user ALL=(ubuntu) NOPASSWD:ALL
+
+------------------------------------------------------------------
+
+Instalando o aws-cli ubuntu:
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+aws login
+
+
+Como acessar apartir da minha máquina:
+
+aws ssm start-session --target i-1234567890abcdef0
+
+Instalar o plugin session manager na minha maquina:
+
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+sudo dpkg -i session-manager-plugin.deb
+which session-manager-plugin
+
+
+Instanlando no windows:
+
+https://awscli.amazonaws.com/AWSCLIV2.msi
+
+aws --version
+
+Instalando o plugin session manager no windows:
+
+https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/SessionManagerPluginSetup.exe
+
+Testar:
+session-manager-plugin
+
+------------------------------------------------------------------
+
+Por forward exemplo:
+
+aws ssm start-session \
+  --target i-xxxxxxxxxxxx \
+  --document-name AWS-StartPortForwardingSession \
+  --parameters '{"portNumber":["3306"],"localPortNumber":["3306"]}'
+
+------------------------------------------------------------------
+
+
+Para acessar uma shell descente:
+sudo bash
+
+Acho que não vai ser necessário
+sudo su - ubuntu
