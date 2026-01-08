@@ -1,4 +1,9 @@
 
+pegar o aculado de consutmo de dados de rede, segmentado por interface
+ubuntu@ip-172-31-19-67:~$ cat /sys/class/net/tun293/statistics/tx_bytes
+ubuntu@ip-172-31-19-67:~$ cat /sys/class/net/tun293/statistics/rx_bytes
+
+
 Delete all files:
 find /var/log -type f -delete
 Delete all .gz and rotated file
