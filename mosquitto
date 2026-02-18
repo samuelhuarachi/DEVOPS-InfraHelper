@@ -6,3 +6,6 @@ mosquitto_sub -h <host> -i <client-id> -u <user> -P '<password>' -t '<topic>' -q
 
 
 
+
+# criando um usuario
+mosquitto_passwd -c password.txt usuario1

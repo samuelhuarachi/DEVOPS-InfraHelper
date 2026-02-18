@@ -1,0 +1,13 @@
+
+# Configuracao para salvar por 2 horas
+
+sudo nano /etc/netdata/netdata.conf
+
+[global]
+history = 7200
+memory mode = ram ou memory mode = dbengine
+
+
+
+
+# a instalacao aquele padrao, usando o wget start.sh
